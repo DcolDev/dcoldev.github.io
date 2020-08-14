@@ -1,0 +1,35 @@
+# Learn more at https://maxkostinevich.com/blog/deploy-jigsaw-using-github-actions
+
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: Install NPM Dependencies
+      run: npm install
+    - name: Install Composer Dependencies
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+    - name: Build website
+      run: npm run production
+    - name: Prepare production
+      run: |
+        git config --global user.email "borisdehoumon@gmail.com"
+        git config --global user.name "Boris DEHOUMON"
+        git add build_production -f && git commit -m "Build for deploy"
+    - name: Deploy website
+      run: |
+        git remote set-url origin https://${{secrets.DEPLOY_KEY}}@github.com/DcolDev/dcoldev.github.io.git
+        git subtree split --prefix build_production -b gh-pages
+        git push -f origin gh-pages:gh-pages
