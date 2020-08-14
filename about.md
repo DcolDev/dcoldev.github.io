@@ -1,3 +1,0 @@
-# About
-
-La communauté
