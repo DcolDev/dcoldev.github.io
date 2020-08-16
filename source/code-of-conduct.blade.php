@@ -1,14 +1,19 @@
+---
+title: Code de Conduite Contributeurs
+description: Le Code de Conduite des contributeurs de la communauté
+---
+
 @extends('_layouts.master')
 
 @push('meta')
-    <meta property="og:title" content="About {{ $page->siteName }}" />
+    <meta property="og:title" content="Code de Conduite Contributeurs" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ $page->getUrl() }}" />
-    <meta property="og:description" content="A little bit about {{ $page->siteName }}" />
+    <meta property="og:description" content="Le Code de Conduite des contributeurs de la communauté" />
 @endpush
 
 @section('body')
-    <h1>Charte Code de Conduite Contributeurs</h1>
+    <h1>Code de Conduite Contributeurs</h1>
 
     <h2>Notre engagement</h2>
 
