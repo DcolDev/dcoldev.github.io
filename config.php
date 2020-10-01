@@ -14,7 +14,9 @@ return [
         'posts' => [
             'author' => 'Author Name', // Default author, if not provided in a post
             'sort' => '-date',
-            'path' => 'blog/{filename}',
+            'path' => function ($page) {
+                return  $page->author. '/' . Str::slug($page->getFilename());
+            },
         ],
         'categories' => [
             'path' => '/blog/categories/{filename}',
