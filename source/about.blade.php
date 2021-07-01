@@ -12,5 +12,7 @@
 
     <p class="mb-6">Dcoldev est une plateforme qui donne la possibilité à tous les acteurs de l'écosystème du numérique un espace de partage , d’entraide et d’échange d’information.</p>
 
+    <p class="mb-6">Pour toutes la communuauté</p>
+
 
 @endsection
